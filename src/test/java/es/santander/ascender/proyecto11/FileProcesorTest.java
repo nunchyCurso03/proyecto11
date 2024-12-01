@@ -33,6 +33,9 @@ public class FileProcesorTest {
         // Crear archivo temporal de prueba
         Path tempFile = Files.createTempFile("testEscribir", ".txt");
 
+        //  TODO para ver la ubicación del archivo temporal y comentar  Files.delete(tempFile);
+        System.out.println("Archivo temporal creado en: " + tempFile.toString());
+
         // Escribir contenido en el archivo temporal
         procesor.escribirAFile(tempFile.toString(), content);
 
@@ -42,16 +45,19 @@ public class FileProcesorTest {
         assertEquals(content, fileContent);
 
         // Eliminar archivo temporal después de la prueba
-        Files.delete(tempFile);
+         Files.delete(tempFile);
     }
 
     @Test
     public void testEliminarVocales() {
         String input = "Hola Mundo";
-        String expected = "Hl Mnd";  // Sin vocales
+        String expected = "Hl Mnd"; // Sin vocales
 
         String result = procesor.eliminarVocales(input);
 
         assertEquals(expected, result);
+
+        //TODO Lo pongo para comprobar. Borrar después
+        System.out.println(expected);
     }
 }
