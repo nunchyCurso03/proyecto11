@@ -76,4 +76,12 @@ public class GestionEstudiantesTest {
         assertEquals(92, estudiantesYCalificaciones.get("Sofia"));
         assertEquals(85, estudiantesYCalificaciones.get("Miguel"));
     }
+
+    @Test
+void testAgregarEstudianteDuplicado() {
+    assertTrue(gestion.agregarEstudiante("Laura", 85));
+    assertFalse(gestion.agregarEstudiante("laura", 90)); // No se debe agregar con una nueva calificación
+    assertEquals(85, gestion.obtenerCalificacion("Laura")); // Calificación original no debe cambiar
+}
+
 }
